@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms & Conditions — Moonray LLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #04060f;
+    --surface: #0b0f1e;
+    --card: #0f1425;
+    --border: rgba(120,140,255,0.12);
+    --accent: #7c6dfa;
+    --accent2: #4fd1c7;
+    --accent3: #f06fbb;
+    --text: #e8eaff;
+    --muted: #7880a0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Grid bg */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(120,140,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,140,255,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 3rem;
+    background: rgba(4,6,15,0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .logo-icon { width: 36px; height: 36px; }
+  .logo-icon svg { width: 100%; height: 100%; }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+  }
+  nav ul a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .875rem;
+    font-weight: 400;
+    letter-spacing: .04em;
+    transition: color .2s;
+    text-transform: uppercase;
+  }
+  nav ul a:hover { color: var(--text); }
+  nav ul a.active { color: var(--accent); }
+
+  .page-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 8rem 2rem 6rem;
+  }
+
+  /* Glow orb */
+  .orb {
+    position: fixed;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    filter: blur(120px);
+    background: radial-gradient(circle, rgba(124,109,250,0.15) 0%, transparent 70%);
+    top: -100px; left: -150px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page-header {
+    margin-bottom: 3rem;
+    animation: fadeUp .8s ease both;
+  }
+
+  .page-label {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .3rem .9rem;
+    border: 1px solid rgba(124,109,250,0.3);
+    border-radius: 100px;
+    font-size: .72rem;
+    color: var(--accent);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    background: rgba(124,109,250,0.07);
+  }
+
+  .page-header h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -.03em;
+    line-height: 1.1;
+    background: linear-gradient(135deg, var(--text) 40%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: .8rem;
+  }
+
+  .page-header .meta {
+    color: var(--muted);
+    font-size: .88rem;
+  }
+
+  .page-header .meta span {
+    color: var(--accent2);
+    font-weight: 500;
+  }
+
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 2.5rem;
+    animation: fadeUp .8s .1s ease both;
+  }
+
+  .toc-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: .75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .toc ol {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .4rem .8rem;
+    counter-reset: toc;
+  }
+
+  .toc li { counter-increment: toc; }
+
+  .toc a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .82rem;
+    transition: color .2s;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+  .toc a::before {
+    content: counter(toc, decimal-leading-zero);
+    font-size: .68rem;
+    color: var(--accent);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    min-width: 26px;
+  }
+  .toc a:hover { color: var(--text); }
+
+  .content {
+    animation: fadeUp .8s .2s ease both;
+  }
+
+  .section-block {
+    margin-bottom: 2.8rem;
+    padding-bottom: 2.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .section-block h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+  }
+
+  .section-num {
+    font-size: .7rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: rgba(124,109,250,0.12);
+    border-radius: 6px;
+    padding: .2rem .5rem;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: .04em;
+  }
+
+  .section-block p {
+    color: var(--muted);
+    font-size: .92rem;
+    line-height: 1.85;
+    margin-bottom: .8rem;
+  }
+  .section-block p:last-child { margin-bottom: 0; }
+
+  .section-block ul {
+    list-style: none;
+    margin-top: .6rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  .section-block li {
+    color: var(--muted);
+    font-size: .9rem;
+    line-height: 1.7;
+    padding-left: 1.4rem;
+    position: relative;
+  }
+  .section-block li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .section-block a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(124,109,250,0.3);
+    transition: border-color .2s;
+  }
+  .section-block a:hover { border-color: var(--accent); }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .85rem;
+    margin-bottom: 2rem;
+    transition: color .2s;
+    animation: fadeUp .6s ease both;
+  }
+  .back-btn:hover { color: var(--text); }
+  .back-btn::before { content: '←'; }
+
+  footer {
+    position: relative;
+    z-index: 1;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 2.5rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: .8rem;
+    display: block;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .82rem;
+    transition: color .2s;
+  }
+  .footer-links a:hover { color: var(--text); }
+
+  .footer-copy { color: var(--muted); font-size: .78rem; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { display: none; }
+    .page-wrapper { padding: 7rem 1.5rem 4rem; }
+    .toc ol { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="orb"></div>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="17" stroke="url(#lg1)" stroke-width="1.5"/>
+        <path d="M10 24C10 24 14 12 18 18C22 24 26 12 26 12" stroke="url(#lg2)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="18" cy="10" r="2.5" fill="url(#lg1)"/>
+        <defs>
+          <linearGradient id="lg1" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#7c6dfa"/>
+            <stop offset="100%" stop-color="#4fd1c7"/>
+          </linearGradient>
+          <linearGradient id="lg2" x1="10" y1="12" x2="26" y2="24" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#7c6dfa"/>
+            <stop offset="50%" stop-color="#4fd1c7"/>
+            <stop offset="100%" stop-color="#f06fbb"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    Moonray LLC
+  </a>
+  <ul>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#contact">Contact</a></li>
+    <li><a href="/privacy" >Privacy</a></li>
+    <li><a href="/term" class="active">Terms</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+  <a href="/" class="back-btn">Back to Home</a>
+
+  <div class="page-header">
+    <div class="page-label">Legal Document</div>
+    <h1>Terms &amp; Conditions</h1>
+    <p class="meta">Last Updated: <span>February 24, 2025</span> · MoonMusicPlayer App</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#s1">Acceptance of Terms</a></li>
+      <li><a href="#s2">Eligibility</a></li>
+      <li><a href="#s3">Account Registration</a></li>
+      <li><a href="#s4">Use of the App</a></li>
+      <li><a href="#s5">Content Ownership</a></li>
+      <li><a href="#s6">User-Generated Content</a></li>
+      <li><a href="#s7">Privacy Policy</a></li>
+      <li><a href="#s8">Subscriptions</a></li>
+      <li><a href="#s9">Termination</a></li>
+      <li><a href="#s10">Disclaimers</a></li>
+      <li><a href="#s11">Limitation of Liability</a></li>
+      <li><a href="#s12">Modifications</a></li>
+      <li><a href="#s13">Governing Law</a></li>
+      <li><a href="#s14">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <div class="content">
+    <div class="section-block" id="s1">
+      <h2><span class="section-num">01</span> Acceptance of Terms</h2>
+      <p>Please read these Terms and Conditions ("Terms") carefully before using the MoonMusicPlayer (the "App"). By accessing or using the App, you agree to be bound by these Terms. If you do not agree with these Terms, please do not use the App.</p>
+      <p>By accessing or using the App, you agree to comply with these Terms and all applicable laws and regulations governing the App.</p>
+    </div>
+
+    <div class="section-block" id="s2">
+      <h2><span class="section-num">02</span> Eligibility</h2>
+      <p>The App is intended for users aged 13 and older. If you are under the age of 13, you must have parental or guardian consent to use the App. We reserve the right to terminate accounts if users do not meet this requirement.</p>
+    </div>
+
+    <div class="section-block" id="s3">
+      <h2><span class="section-num">03</span> Account Registration</h2>
+      <p>To use certain features, you may be required to create an account. You are responsible for maintaining the confidentiality of your login credentials and any activity under your account.</p>
+    </div>
+
+    <div class="section-block" id="s4">
+      <h2><span class="section-num">04</span> Use of the App</h2>
+      <p>You agree not to misuse the App, including but not limited to:</p>
+      <ul>
+        <li>Engaging in unauthorized access, hacking, or tampering with App security.</li>
+        <li>Uploading malicious software, malware, or harmful content.</li>
+        <li>Violating any applicable laws or regulations.</li>
+      </ul>
+    </div>
+
+    <div class="section-block" id="s5">
+      <h2><span class="section-num">05</span> Content Ownership and Usage</h2>
+      <p>This app is not affiliated with, endorsed by, or associated with YouTube. All video content is provided by the YouTube API and is subject to YouTube's Terms of Service.</p>
+    </div>
+
+    <div class="section-block" id="s6">
+      <h2><span class="section-num">06</span> User-Generated Content</h2>
+      <p>Users may submit content such as comments, responses, or feedback. By submitting content, you grant us a non-exclusive, royalty-free license to use, display, and distribute your content within the App. You must ensure your content does not violate any laws or third-party rights.</p>
+    </div>
+
+    <div class="section-block" id="s7">
+      <h2><span class="section-num">07</span> Privacy Policy</h2>
+      <p>Your use of the App is subject to our <a href="/privacy">Privacy Policy</a>. To learn how we collect, use, and protect your data, please review our Privacy Policy.</p>
+    </div>
+
+    <div class="section-block" id="s8">
+      <h2><span class="section-num">08</span> Subscriptions and Payments</h2>
+      <p>Some features of the App may require a paid subscription. By subscribing, you agree to pay applicable fees, which may be billed on a recurring basis. Subscription cancellations must be managed through your account settings.</p>
+    </div>
+
+    <div class="section-block" id="s9">
+      <h2><span class="section-num">09</span> Termination of Use</h2>
+      <p>We reserve the right to terminate or suspend your account without notice if you violate these Terms or engage in activities that harm the App or other users.</p>
+    </div>
+
+    <div class="section-block" id="s10">
+      <h2><span class="section-num">10</span> Disclaimers</h2>
+      <p>The App is provided "as is" without any warranties. We do not guarantee that the App will always be available, secure, or error-free.</p>
+    </div>
+
+    <div class="section-block" id="s11">
+      <h2><span class="section-num">11</span> Limitation of Liability</h2>
+      <p>To the fullest extent permitted by law, we shall not be liable for any direct, indirect, or consequential damages arising from your use of the App.</p>
+    </div>
+
+    <div class="section-block" id="s12">
+      <h2><span class="section-num">12</span> Modifications to Terms</h2>
+      <p>We may update these Terms from time to time. Continued use of the App after changes are made constitutes acceptance of the updated Terms.</p>
+    </div>
+
+    <div class="section-block" id="s13">
+      <h2><span class="section-num">13</span> Governing Law</h2>
+      <p>These Terms are governed by the laws of the State of Delaware, United States. Any disputes shall be resolved in the appropriate courts thereof.</p>
+    </div>
+
+    <div class="section-block" id="s14">
+      <h2><span class="section-num">14</span> Contact Us</h2>
+      <p>If you have any questions about these Terms, please contact us at <a href="mailto:hello@mooray.store">hello@mooray.store</a>.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">Moonray LLC</span>
+  <ul class="footer-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#contact">Contact</a></li>
+    <li><a href="/privacy">Privacy Policy</a></li>
+    <li><a href="/term">Terms &amp; Conditions</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Moonray LLC. All rights reserved. · mooray.store</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Moonray LLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #04060f;
+    --surface: #0b0f1e;
+    --card: #0f1425;
+    --border: rgba(120,140,255,0.12);
+    --accent: #7c6dfa;
+    --accent2: #4fd1c7;
+    --accent3: #f06fbb;
+    --text: #e8eaff;
+    --muted: #7880a0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(120,140,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,140,255,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 3rem;
+    background: rgba(4,6,15,0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .logo-icon { width: 36px; height: 36px; }
+  .logo-icon svg { width: 100%; height: 100%; }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+  }
+  nav ul a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .875rem;
+    font-weight: 400;
+    letter-spacing: .04em;
+    transition: color .2s;
+    text-transform: uppercase;
+  }
+  nav ul a:hover { color: var(--text); }
+  nav ul a.active { color: var(--accent2); }
+
+  .orb {
+    position: fixed;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    filter: blur(120px);
+    background: radial-gradient(circle, rgba(79,209,199,0.12) 0%, transparent 70%);
+    top: -100px; right: -150px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 8rem 2rem 6rem;
+  }
+
+  .page-header {
+    margin-bottom: 3rem;
+    animation: fadeUp .8s ease both;
+  }
+
+  .page-label {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .3rem .9rem;
+    border: 1px solid rgba(79,209,199,0.3);
+    border-radius: 100px;
+    font-size: .72rem;
+    color: var(--accent2);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    background: rgba(79,209,199,0.07);
+  }
+
+  .page-header h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -.03em;
+    line-height: 1.1;
+    background: linear-gradient(135deg, var(--text) 40%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: .8rem;
+  }
+
+  .page-header .meta {
+    color: var(--muted);
+    font-size: .88rem;
+  }
+  .page-header .meta span { color: var(--accent2); font-weight: 500; }
+
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 2.5rem;
+    animation: fadeUp .8s .1s ease both;
+  }
+
+  .toc-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: .75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .toc ol {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .4rem .8rem;
+    counter-reset: toc;
+  }
+  .toc li { counter-increment: toc; }
+  .toc a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .82rem;
+    transition: color .2s;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+  .toc a::before {
+    content: counter(toc, decimal-leading-zero);
+    font-size: .68rem;
+    color: var(--accent2);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    min-width: 26px;
+  }
+  .toc a:hover { color: var(--text); }
+
+  .content { animation: fadeUp .8s .2s ease both; }
+
+  .section-block {
+    margin-bottom: 2.8rem;
+    padding-bottom: 2.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-block:last-child { border-bottom: none; margin-bottom: 0; }
+
+  .section-block h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+  }
+
+  .section-num {
+    font-size: .7rem;
+    font-weight: 700;
+    color: var(--accent2);
+    background: rgba(79,209,199,0.1);
+    border-radius: 6px;
+    padding: .2rem .5rem;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: .04em;
+  }
+
+  .section-block p {
+    color: var(--muted);
+    font-size: .92rem;
+    line-height: 1.85;
+    margin-bottom: .8rem;
+  }
+  .section-block p:last-child { margin-bottom: 0; }
+
+  .section-block a {
+    color: var(--accent2);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(79,209,199,0.3);
+    transition: border-color .2s;
+  }
+  .section-block a:hover { border-color: var(--accent2); }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .85rem;
+    margin-bottom: 2rem;
+    transition: color .2s;
+    animation: fadeUp .6s ease both;
+  }
+  .back-btn:hover { color: var(--text); }
+  .back-btn::before { content: '←'; }
+
+  footer {
+    position: relative;
+    z-index: 1;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 2.5rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: .8rem;
+    display: block;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: .82rem;
+    transition: color .2s;
+  }
+  .footer-links a:hover { color: var(--text); }
+  .footer-copy { color: var(--muted); font-size: .78rem; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { display: none; }
+    .page-wrapper { padding: 7rem 1.5rem 4rem; }
+    .toc ol { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="orb"></div>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="17" stroke="url(#lg1)" stroke-width="1.5"/>
+        <path d="M10 24C10 24 14 12 18 18C22 24 26 12 26 12" stroke="url(#lg2)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="18" cy="10" r="2.5" fill="url(#lg1)"/>
+        <defs>
+          <linearGradient id="lg1" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#7c6dfa"/>
+            <stop offset="100%" stop-color="#4fd1c7"/>
+          </linearGradient>
+          <linearGradient id="lg2" x1="10" y1="12" x2="26" y2="24" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#7c6dfa"/>
+            <stop offset="50%" stop-color="#4fd1c7"/>
+            <stop offset="100%" stop-color="#f06fbb"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    Moonray LLC
+  </a>
+  <ul>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#contact">Contact</a></li>
+    <li><a href="/privacy" class="active">Privacy</a></li>
+    <li><a href="/term">Terms</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+  <a href="/" class="back-btn">Back to Home</a>
+
+  <div class="page-header">
+    <div class="page-label">Legal Document</div>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last Updated: <span>February 24, 2025</span> · Moonray LLC Applications</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#p1">Information We Collect</a></li>
+      <li><a href="#p2">How We Use Your Information</a></li>
+      <li><a href="#p3">Data Sharing</a></li>
+      <li><a href="#p4">YouTube API Services</a></li>
+      <li><a href="#p5">Data Security</a></li>
+      <li><a href="#p6">Children's Privacy</a></li>
+      <li><a href="#p7">Data Retention</a></li>
+      <li><a href="#p8">Your Rights</a></li>
+      <li><a href="#p9">Cookies and Tracking</a></li>
+      <li><a href="#p10">Changes to Policy</a></li>
+      <li><a href="#p11">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <div class="content">
+    <div class="section-block" id="p1">
+      <h2><span class="section-num">01</span> Information We Collect</h2>
+      <p>We collect information you provide directly, such as when you create an account, contact us, or use features of the App. This may include your name, email address, and usage preferences.</p>
+    </div>
+
+    <div class="section-block" id="p2">
+      <h2><span class="section-num">02</span> How We Use Your Information</h2>
+      <p>We use the information we collect to operate and improve our applications, personalize your experience, respond to your comments and questions, and send administrative communications.</p>
+    </div>
+
+    <div class="section-block" id="p3">
+      <h2><span class="section-num">03</span> Data Sharing</h2>
+      <p>We do not sell or rent your personal information to third parties. We may share data with trusted service providers who assist in operating our applications under strict confidentiality agreements.</p>
+    </div>
+
+    <div class="section-block" id="p4">
+      <h2><span class="section-num">04</span> YouTube API Services</h2>
+      <p>Our MoonMusicPlayer application uses YouTube API Services. By using this app, you agree to be bound by the <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Terms of Service</a>. Google's Privacy Policy is available at <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a>.</p>
+      <p>This app is not affiliated with, endorsed by, or associated with YouTube. All video content is provided by the YouTube API and subject to YouTube's Terms of Service.</p>
+    </div>
+
+    <div class="section-block" id="p5">
+      <h2><span class="section-num">05</span> Data Security</h2>
+      <p>We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction.</p>
+    </div>
+
+    <div class="section-block" id="p6">
+      <h2><span class="section-num">06</span> Children's Privacy</h2>
+      <p>Our applications are not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us immediately.</p>
+    </div>
+
+    <div class="section-block" id="p7">
+      <h2><span class="section-num">07</span> Data Retention</h2>
+      <p>We retain personal information for as long as necessary to provide our services and comply with legal obligations. You may request deletion of your data at any time.</p>
+    </div>
+
+    <div class="section-block" id="p8">
+      <h2><span class="section-num">08</span> Your Rights</h2>
+      <p>You have the right to access, correct, or delete your personal data. You may also object to processing or request data portability. Contact us at <a href="mailto:hello@mooray.store">hello@mooray.store</a> to exercise these rights.</p>
+    </div>
+
+    <div class="section-block" id="p9">
+      <h2><span class="section-num">09</span> Cookies and Tracking</h2>
+      <p>Our web applications may use cookies to improve user experience and analyze usage patterns. You can control cookie settings through your browser preferences.</p>
+    </div>
+
+    <div class="section-block" id="p10">
+      <h2><span class="section-num">10</span> Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify users of significant changes via email or prominent notice within the application.</p>
+    </div>
+
+    <div class="section-block" id="p11">
+      <h2><span class="section-num">11</span> Contact Us</h2>
+      <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:hello@mooray.store">hello@mooray.store</a> or visit <a href="/">mooray.store</a>.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">Moonray LLC</span>
+  <ul class="footer-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#contact">Contact</a></li>
+    <li><a href="/privacy">Privacy Policy</a></li>
+    <li><a href="/term">Terms &amp; Conditions</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Moonray LLC. All rights reserved. · mooray.store</p>
+</footer>
+
+</body>
+</html>
