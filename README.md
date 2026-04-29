@@ -3,9 +3,9 @@
 This repository contains the static HTML files for the **Moonray** landing page and legal documents. It is designed to be deployed using **Dokploy**.
 
 ## 🌐 Live URLs
-- **Main Website:** [https://moonray.store](https://moonray.store)
-- **Terms of Service:** [https://moonray.store/term](https://moonray.store/term)
-- **Privacy Policy:** [https://moonray.store/privacy](https://moonray.store/privacy)
+- **Main Website:** [https://moonray.store](https://www.moonray.store)
+- **Terms of Service:** [https://moonray.store/term](https://www.moonray.store/term)
+- **Privacy Policy:** [https://moonray.store/privacy](https://www.moonray.store/privacy)
 
 ## 📁 Project Structure
 The project uses a folder-based structure to ensure "pretty URLs" (clean paths without the `.html` extension):
